@@ -16,7 +16,20 @@ hr{
   font-weight: bold;
 }
 
-.sidebar-sticky{
-  position: sticky;
-  top:0;
+.sidebar{
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+
+}
+
+
+.sticky{
+    position: sticky;
+    top:62px;
+}
+.sticky a{
+  padding: 5px;
+  padding-left:20px;
+  font-weight: bold;
+  color: #111111;
+  font-size: 1.5em;
 }
