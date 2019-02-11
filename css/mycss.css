@@ -33,3 +33,14 @@ hr{
   color: #111111;
   font-size: 1.5em;
 }
+
+table.hlist thead tr,
+table.hlist tbody tr{
+  font-size: 12px;
+}
+
+
+table.hlist th{
+  position: sticky;
+  top:0;
+}

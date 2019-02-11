@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 try
 {
   global $conn;
-  $sql = "INSERT INTO hospitalinfo
+  $sql = $conn->prepare("INSERT INTO hospitalinfo
   (
     name,
     address,
@@ -87,35 +87,39 @@ try
     conformed_issued,
     date_deadline
   )
-  VALUES ("
-    . $conn->quote($name) . ","
-    . $conn->quote($address) . ","
-    . $conn->quote($director) . ","
-    . $conn->quote($owner) . ","
-    . $conn->quote($authorized_capacity) . ","
-    . $conn->quote($service_capacity) . ","
-    . $conn->quote($facility) . ","
-    . $conn->quote($contact) . ","
-    . $conn->quote($email) . ","
-    . $conn->quote($classification) . ","
-    . $conn->quote($private) . ","
-    . $conn->quote($clinical_lab) . ","
-    . $conn->quote($DTL) . ","
-    . $conn->quote($HIV) . ","
-    . $conn->quote($pharmacy) . ","
-    . $conn->quote($xray) . ","
-    . $conn->quote($BSF) . ","
-    . $conn->quote($dialysis) . ","
-    . $conn->quote($water_testing_lab) . ","
-    . $conn->quote($LTO_cert) . ","
-    . $conn->quote($license) . ","
-    . $conn->quote($date_monitoring) . ","
-    . $conn->quote($NOV) . ","
-    . $conn->quote($conformed_issued) . ","
-    . $conn->quote($date_deadline) . "
-  )";
+  VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+
+  $sql->execute([
+  $name,
+  $address,
+  $director,
+  $owner,
+  $authorized_capacity,
+  $service_capacity,
+  $facility,
+  $contact,
+  $email,
+  $classification,
+  $private,
+  $clinical_lab,
+  $DTL,
+  $HIV,
+  $pharmacy,
+  $xray,
+  $BSF,
+  $dialysis,
+  $water_testing_lab,
+  $LTO_cert,
+  $license,
+  $date_monitoring,
+  $NOV,
+  $conformed_issued,
+  $date_deadline]);
+
   add_hospital($sql);
   echo "Added successfully!";
+  header("Location: index.php");
+  die();
 }
 catch(PDOException $e)
 {
