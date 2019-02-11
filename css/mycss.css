@@ -15,3 +15,8 @@ hr{
 .col-form-label{
   font-weight: bold;
 }
+
+.sidebar-sticky{
+  position: sticky;
+  top:0;
+}
