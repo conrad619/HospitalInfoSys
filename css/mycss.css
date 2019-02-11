@@ -1,0 +1,17 @@
+.form-group{
+  /*margin-bottom:-2px;*/
+}
+.form-control{
+  border-radius: 0;
+}
+
+hr{
+    border-top:1px solid #999999;
+}
+
+.form-control, .custom-select{
+  border:1px solid #999999;
+}
+.col-form-label{
+  font-weight: bold;
+}

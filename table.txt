@@ -1,0 +1,27 @@
+table
+hospital
+  name
+  address
+  director
+  owner
+  authorized_capacity
+  service_capacity
+  facility #
+  contact #
+  email
+  classification drop
+  private bool
+  clinical_lab drop
+  DTL bool
+  HIV bool
+  pharmacy bool
+  xray drop
+  BSF drop
+  dialysis
+  water_testing_lab
+  LTO_cert
+  license #
+  date_monitoring date
+  NOV bool
+  conformed_issued bool
+  date_deadline date
