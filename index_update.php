@@ -102,7 +102,7 @@
                   <div class="form-group row">
                       <div class="col-sm-10 offset-sm-2">
                       <div class="custom-control custom-checkbox ">
-                        <input type="checkbox" class="custom-control-input" name="private" value="<?php echo $row[""]; ?>" <?php echo ($row["private"]==1) ? "checked": ""; ?> id="private">
+                        <input type="checkbox" class="custom-control-input" name="private" value="1" <?php echo ($row["private"]==1) ? "checked": ""; ?> id="private">
                         <label class="custom-control-label" for="private">Private</label>
                       </div>
                     </div>
@@ -124,15 +124,15 @@
                   <div class="form-group row">
                       <div class="col-sm-10 offset-sm-2">
                       <div class="custom-control custom-checkbox ">
-                        <input type="checkbox" class="custom-control-input" name="DTL" value="<?php echo $row["DTL"]; ?>" <?php echo ($row["DTL"]==1) ? "checked": ""; ?> id="DTL">
+                        <input type="checkbox" class="custom-control-input" name="DTL" value="1" <?php echo ($row["DTL"]==1) ? "checked": ""; ?> id="DTL">
                         <label class="custom-control-label" for="DTL">DTL</label>
                       </div>
                       <div class="custom-control custom-checkbox ">
-                        <input type="checkbox" class="custom-control-input" name="HIV" value="<?php echo $row["HIV"]; ?>" <?php echo ($row["HIV"]==1) ? "checked": ""; ?> id="HIV">
+                        <input type="checkbox" class="custom-control-input" name="HIV" value="1" <?php echo ($row["HIV"]==1) ? "checked": ""; ?> id="HIV">
                         <label class="custom-control-label" for="HIV">HIV</label>
                       </div>
                       <div class="custom-control custom-checkbox ">
-                        <input type="checkbox" class="custom-control-input" name="pharmacy" value="<?php echo $row["pharmacy"]; ?>" <?php echo ($row["pharmacy"]==1) ? "checked": ""; ?> id="pharmacy">
+                        <input type="checkbox" class="custom-control-input" name="pharmacy" value="1" <?php echo ($row["pharmacy"]==1) ? "checked": ""; ?> id="pharmacy">
                         <label class="custom-control-label" for="pharmacy">Pharmacy</label>
                       </div>
                     </div>
