@@ -1,6 +1,7 @@
 <?php
 
 require 'connect.php';
+$ids = "";
 $name = "";
 $address = "";
 $director = "";
@@ -28,6 +29,7 @@ $conformed_issued = "";
 $date_deadline = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $ids                   = check_input($_POST["id"]);
   $name                  = check_input($_POST["name"]);
   $address               = check_input($_POST["address"]);
   $director              = check_input($_POST["director"]);
@@ -59,35 +61,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 try
 {
   global $conn;
-  $sql = $conn->prepare("INSERT INTO hospitalinfo
-  (
-    name,
-    address,
-    director,
-    owner,
-    authorized_capacity,
-    service_capacity,
-    facility,
-    contact,
-    email,
-    classification,
-    private,
-    clinical_lab,
-    DTL,
-    HIV,
-    pharmacy,
-    xray,
-    BSF,
-    dialysis,
-    water_testing_lab,
-    LTO_cert,
-    license,
-    date_monitoring,
-    NOV,
-    conformed_issued,
-    date_deadline
-  )
-  VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+  $sql = $conn->prepare("UPDATE hospitalinfo SET
+
+    name = ?,
+    address = ?,
+    director = ?,
+    owner = ?,
+    authorized_capacity = ?,
+    service_capacity = ?,
+    facility = ?,
+    contact = ?,
+    email = ?,
+    classification = ?,
+    private = ?,
+    clinical_lab = ?,
+    DTL = ?,
+    HIV = ?,
+    pharmacy = ?,
+    xray = ?,
+    BSF = ?,
+    dialysis = ?,
+    water_testing_lab = ?,
+    LTO_cert = ?,
+    license = ?,
+    date_monitoring = ?,
+    NOV = ?,
+    conformed_issued = ?,
+    date_deadline = ?
+    WHERE id = ? ");
 
   $sql->execute([
   $name,
@@ -114,27 +115,18 @@ try
   $date_monitoring,
   $NOV,
   $conformed_issued,
-  $date_deadline]);
+  $date_deadline,
+  $ids]);
 
-  echo "Added successfully!";
-  header("Location: index.php");
+  echo "Updated successfully!";
+  header("Location: index_view.php");
   die();
 }
 catch(PDOException $e)
 {
-  echo "Add failed: " . $e->getMessage();
+  echo "Update failed: " . $e->getMessage();
 }
-//
-// function add_hospital($sql_insert){
-//   global $conn;
-//   if($conn->exec($sql_insert) === false){
-//     $msg = 'Error inserting hospital.';
-//     return false;
-//   }else{
-//     $msg = "The new hospital inserted";
-//     return true;
-//   }
-// }
+
 
 
 ?>

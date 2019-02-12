@@ -13,4 +13,11 @@ catch(PDOException $e)
     {
       //echo "Connection failed: " . $e->getMessage();
     }
+
+
+    function check_input($data) {
+      $data = stripslashes($data);
+      $data = htmlspecialchars($data);
+      return $data;
+    }
 ?>

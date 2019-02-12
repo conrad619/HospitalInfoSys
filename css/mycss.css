@@ -44,3 +44,9 @@ table.hlist th{
   position: sticky;
   top:0;
 }
+table.formatHTML5 tr.selected {
+    background-color: #e92929 !important;
+    color:#fff;
+    vertical-align: middle;
+    padding: 1.5em;
+}

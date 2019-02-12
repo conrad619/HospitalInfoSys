@@ -1,7 +1,4 @@
-<?php
-include 'connect.php';
 
- ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -26,7 +23,7 @@ include 'connect.php';
       <nav class="nav flex-column col-md-2 sidebar p-2 bg-light">
         <div class="sticky nav flex-column">
           <a href="index.php">Add Hospital</a>
-          <a href="index2.php">View Hospitals</a>
+          <a href="index_view.php">View Hospitals</a>
         </div>
 
       </nav>
