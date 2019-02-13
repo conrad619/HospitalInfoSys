@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 11, 2019 at 03:43 AM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.4
+-- Generation Time: Feb 13, 2019 at 06:26 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `hospitalinfo` (
+  `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `address` varchar(225) NOT NULL,
   `director` varchar(100) NOT NULL,
@@ -52,7 +53,7 @@ CREATE TABLE `hospitalinfo` (
   `license` varchar(225) NOT NULL,
   `date_monitoring` varchar(225) NOT NULL,
   `NOV` tinyint(1) NOT NULL,
-  `Conformed_issued` tinyint(1) NOT NULL,
+  `conformed_issued` tinyint(1) NOT NULL,
   `date_deadline` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -60,8 +61,40 @@ CREATE TABLE `hospitalinfo` (
 -- Dumping data for table `hospitalinfo`
 --
 
-INSERT INTO `hospitalinfo` (`name`, `address`, `director`, `owner`, `authorized_capacity`, `service_capacity`, `facility`, `contact`, `email`, `classification`, `private`, `clinical_lab`, `DTL`, `HIV`, `pharmacy`, `xray`, `BSF`, `dialysis`, `water_testing_lab`, `LTO_cert`, `license`, `date_monitoring`, `NOV`, `Conformed_issued`, `date_deadline`) VALUES
-('hospital', '', 'director', 'owner', 'authorize', 'Hospital', 'facility', 'contact', 'email@gmail.com', 'Province', 1, 'Secondary', 1, 0, 1, 'level 2', '2', 'dialysis', 'water tesing lab', 'link', 'license', '2019-02-12', 1, 0, '2019-02-18');
+INSERT INTO `hospitalinfo` (`id`, `name`, `address`, `director`, `owner`, `authorized_capacity`, `service_capacity`, `facility`, `contact`, `email`, `classification`, `private`, `clinical_lab`, `DTL`, `HIV`, `pharmacy`, `xray`, `BSF`, `dialysis`, `water_testing_lab`, `LTO_cert`, `license`, `date_monitoring`, `NOV`, `conformed_issued`, `date_deadline`) VALUES
+(1, 'hospital', '', 'director', 'owner', 'authorize', 'Hospital', 'facility', 'contact', 'email@gmail.com', 'Province', 1, 'Secondary', 1, 0, 1, 'level 2', '2', 'dialysis', 'water tesing lab', 'link', 'license', '2019-02-12', 1, 0, '2019-02-18'),
+(2, 'hospital0', 'address', 'director', 'owner', 'authorized', 'Infirmary', '123', '123123', 'hos@gmail.com', 'Province', 1, 'Secondary', 1, 1, 0, 'level 2', '2', 'Dialyiss', 'water testinng lab', 'link', 'qweqweqwe', '2019-02-11', 0, 1, '2019-02-21'),
+(3, 'hospital1', 'address1', 'director 1', 'owner1', '2', 'Infirmary', '123123', '346567', 'jose@gmail.com', 'City', 1, 'Primary', 0, 1, 1, 'level 2', '3', 'false', 'asdf', 'link.com', '2354765', '2019-02-15', 0, 1, '2019-02-19'),
+(4, 'hospital1', 'address1', 'director 1', 'owner1', '2', 'Infirmary', '123123', '346567', 'jose@gmail.com', 'City', 1, 'Primary', 0, 1, 1, 'level 2', '3', 'false', 'asdf', 'link.com', '2354765', '2019-02-15', 0, 1, '2019-02-19'),
+(5, 'hospital1', 'address1', 'director 1', 'owner1', '2', 'Infirmary', '123123', '346567', 'jose@gmail.com', 'City', 1, 'Primary', 0, 1, 1, 'level 2', '3', 'false', 'asdf', 'link.com', '2354765', '2019-02-15', 0, 1, '2019-02-19'),
+(6, 'hospital1', 'address1', 'director 1', 'owner1', '2', 'Infirmary', '123123', '346567', 'jose@gmail.com', 'City', 1, 'Primary', 0, 1, 1, 'level 2', '3', 'false', 'asdf', 'link.com', '2354765', '2019-02-15', 0, 1, '2019-02-19'),
+(7, 'hospital1', 'address1', 'director 1', 'owner1', '2', 'Infirmary', '123123', '346567', 'jose@gmail.com', 'City', 1, 'Primary', 0, 1, 1, 'level 2', '3', 'false', 'asdf', 'link.com', '2354765', '2019-02-15', 0, 1, '2019-02-19'),
+(8, 'hospital1', 'address1', 'director 1', 'owner1', '2', 'Infirmary', '123123', '346567', 'jose@gmail.com', 'City', 1, 'Primary', 0, 1, 1, 'level 2', '3', 'false', 'asdf', 'link.com', '2354765', '2019-02-15', 0, 1, '2019-02-19'),
+(9, 'hospital1', 'address1', 'director 1', 'owner1', '2', 'Infirmary', '123123', '346567', 'jose@gmail.com', 'City', 1, 'Primary', 0, 1, 1, 'level 2', '3', 'false', 'asdf', 'link.com', '2354765', '2019-02-15', 0, 1, '2019-02-19'),
+(10, 'hospital1', 'address1', 'director 1', 'owner1', '2', 'Infirmary', '123123', '346567', 'jose@gmail.com', 'City', 1, 'Primary', 0, 1, 1, 'level 2', '3', 'false', 'asdf', 'link.com', '2354765', '2019-02-15', 0, 1, '2019-02-19'),
+(11, 'hospital1', 'address1', 'director 1', 'owner1', '2', 'Infirmary', '123123', '346567', 'jose@gmail.com', 'City', 1, 'Primary', 0, 1, 1, 'level 2', '3', 'false', 'asdf', 'link.com', '2354765', '2019-02-15', 0, 1, '2019-02-19'),
+(12, 'hospital1', 'address1', 'director 1', 'owner1', '2', 'Infirmary', '123123', '346567', 'jose@gmail.com', 'City', 1, 'Primary', 0, 1, 1, 'level 2', '3', 'false', 'asdf', 'link.com', '2354765', '2019-02-15', 0, 1, '2019-02-19'),
+(13, 'hospital1', 'address1', 'director 1', 'owner1', '2', 'Infirmary', '123123', '346567', 'jose@gmail.com', 'City', 1, 'Primary', 0, 1, 1, 'level 2', '3', 'false', 'asdf', 'link.com', '2354765', '2019-02-15', 0, 1, '2019-02-19');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `hospitalinfo`
+--
+ALTER TABLE `hospitalinfo`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `hospitalinfo`
+--
+ALTER TABLE `hospitalinfo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
