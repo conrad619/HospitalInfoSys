@@ -42,8 +42,19 @@
                   <div class="form-group row">
                     <label for="service_capacity" class="col-sm-2 col-form-label">Service Capacity: </label>
                     <div class="col-sm-10">
-                      <select class="custom-select" name="service_capacity" id="service_capacity" required>
-                        <option value="<?php echo $row["service_capacity"]; ?>" selected><?php echo $row["service_capacity"]; ?></option>
+                      <?php
+                      $serv = $row["service_capacity"];
+                      $lvl = "";
+                      if (strpos($serv,"Hospital") !== false){
+                        $s = explode(" ", $serv);
+                        $serv = $s[0];
+                        $lvl = $s[2];
+
+                      }
+
+                      ?>
+                      <select class="custom-select" name="service_" id="service_" required>
+                        <option value="<?php echo $serv; ?>" selected><?php echo $serv; ?></option>
                         <option value="Hospital">Hospital</option>
                         <option value="Infirmary">Infirmary</option>
                         <option value="Birthing Facility">Birthing Facility</option>
@@ -52,7 +63,8 @@
                         <div class="row">
                           <label for="shospital" class="col-form-label mr-3">Hospital:</label>
                           <select class="custom-select col" name="shospital" id="shospital" required>
-                            <option selected>Open this select menu</option>
+
+                            <option value="<?php echo $lvl; ?>" selected><?php echo $lvl; ?></option>
                             <option value="L1">L1</option>
                             <option value="L2">L2</option>
                             <option value="L3">L3</option>
@@ -60,6 +72,9 @@
                         </div>
                       </div>
                     </div>
+
+                    <input type="hidden" name="service_capacity" id="service_capacity" value="<?php echo $row["service_capacity"]; ?>">
+
                   </div>
 
 
@@ -251,13 +266,36 @@
 <?php include 'bottomlayout.php' ?>
 
   <script type="text/javascript">
-    $("#hospitalSelection").hide();
-    $(document).ready(function(){
-      $("#service_capacity").change(function(){
-        var selectedService = $(this).children("option:selected").val();
-        if (selectedService==="Hospital"){
-          $("#hospitalSelection").show();
-        }
-      })
-    })
+  $("#hospitalSelection").hide();
+  $(document).ready(function(){
+
+    servf($("#service_"));
+    $("#service_").change(function(){
+      servf($(this));
+    });
+
+
+    $("#shospital").change(function(){
+      var h = $(this).children("option:selected").val();
+
+      var s = $("#service_capacity").val();
+
+      $("#service_capacity").val(s+" : "+h);
+
+    });
+  });
+
+  function servf(th){
+    var selectedService = th.children("option:selected").val();
+
+    var s = $("#service_").val();
+    if (selectedService==="Hospital"){
+      $("#hospitalSelection").show();
+    }else{
+      $("#hospitalSelection").hide();
+    }
+
+    $("#service_capacity").val(s);
+  }
+
   </script>

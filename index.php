@@ -40,8 +40,8 @@
                   <div class="form-group row">
                     <label for="service_capacity" class="col-sm-2 col-form-label">Service Capacity: </label>
                     <div class="col-sm-10">
-                      <select class="custom-select" name="service_capacity" id="service_capacity" required>
-                        <option selected>Open this select menu</option>
+                      <select class="custom-select" name="service_" id="service_" required>
+                        <option disabled selected>Open this select menu</option>
                         <option value="Hospital">Hospital</option>
                         <option value="Infirmary">Infirmary</option>
                         <option value="Birthing Facility">Birthing Facility</option>
@@ -49,8 +49,8 @@
                       <div class=" col-sm-12" id="hospitalSelection">
                         <div class="row">
                           <label for="shospital" class="col-form-label mr-3">Hospital:</label>
-                          <select class="custom-select col" name="shospital" id="shospital" required>
-                            <option selected>Open this select menu</option>
+                          <select class="custom-select col" name="shospital" id="shospital">
+                            <option disabled selected>Open this select menu</option>
                             <option value="L1">L1</option>
                             <option value="L2">L2</option>
                             <option value="L3">L3</option>
@@ -58,6 +58,9 @@
                         </div>
                       </div>
                     </div>
+
+                    <input type="hidden" name="service_capacity" id="service_capacity" value="">
+
                   </div>
 
 
@@ -88,7 +91,7 @@
                       <div class="col-sm-10">
                         <label for="" class="col-form-label ">Government:</label>
                         <select class="custom-select" name="classification" id="classification" required>
-                          <option selected>Open this select menu</option>
+                          <option disabled selected>Open this select menu</option>
                           <option value="Province">Province</option>
                           <option value="Municipality">Municipality</option>
                           <option value="City">City</option>
@@ -111,7 +114,7 @@
                       <div class="col-sm-10">
                         <label for="clinical_lab" class="col-form-label ">Clinical Lab:</label>
                         <select class="custom-select" name="clinical_lab" id="clinical_lab" required>
-                          <option selected>Open this select menu</option>
+                          <option disabled selected>Open this select menu</option>
                           <option value="Primary">Primary</option>
                           <option value="Secondary">Secondary</option>
                           <option value="Tertiary">Tertiary</option>
@@ -140,7 +143,7 @@
                     <label for="xray" class="col-sm-10 col-form-label offset-sm-2">XRAY:</label>
                       <div class="col-sm-10  offset-sm-2">
                         <select class="custom-select" name="xray" id="xray" required>
-                          <option selected>Open this select menu</option>
+                          <option disabled selected>Open this select menu</option>
                           <option value="level 1">level 1</option>
                           <option value="level 2">level 2</option>
                           <option value="level 3">level 3</option>
@@ -153,7 +156,7 @@
                     <label for="BSF" class="col-sm-10 col-form-label offset-sm-2">BSF:</label>
                       <div class="col-sm-10 offset-sm-2">
                         <select class="custom-select" name="BSF" id="BSF" required>
-                          <option selected>Open this select menu</option>
+                          <option disabled selected>Open this select menu</option>
                           <option value="1">BS</option>
                           <option value="2">BCU</option>
                           <option value="3">BCU/BS</option>
@@ -203,7 +206,7 @@
                     <label for="NOV" class="col-sm-2 col-form-label">NOV/Notice Of Violation issued:</label>
                     <div class="col-sm-10 d-flex align-items-center">
                       <div class="custom-control custom-radio mr-5">
-                        <input type="radio" id="nyes" name="NOV" value="1" class="custom-control-input">
+                        <input type="radio" id="nyes" name="NOV" value="1" class="custom-control-input" required>
                         <label class="custom-control-label" for="nyes">YES</label>
                       </div>
                       <div class="custom-control custom-radio">
@@ -219,7 +222,7 @@
                     <label for="conformed_issued" class="col-sm-2 col-form-label">Conformed Issued:</label>
                     <div class="col-sm-10 d-flex align-items-center">
                       <div class="custom-control custom-radio mr-5">
-                        <input type="radio" id="cyes" value="1" name="conformed_issued" class="custom-control-input">
+                        <input type="radio" id="cyes" value="1" name="conformed_issued" class="custom-control-input" required>
                         <label class="custom-control-label" for="cyes">YES</label>
                       </div>
                       <div class="custom-control custom-radio">
@@ -251,11 +254,27 @@
   <script type="text/javascript">
     $("#hospitalSelection").hide();
     $(document).ready(function(){
-      $("#service_capacity").change(function(){
+      $("#service_").change(function(){
         var selectedService = $(this).children("option:selected").val();
+
+        var s = $("#service_").val();
         if (selectedService==="Hospital"){
           $("#hospitalSelection").show();
+        }else{
+          $("#hospitalSelection").hide();
         }
-      })
+
+        $("#service_capacity").val(s);
+
+      });
+
+      $("#shospital").change(function(){
+        var h = $(this).children("option:selected").val();
+
+        var s = $("#service_capacity").val();
+
+        $("#service_capacity").val(s+" : "+h);
+
+      });
     })
   </script>
