@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 13, 2019 at 06:26 PM
+-- Generation Time: Feb 14, 2019 at 07:01 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -63,8 +63,8 @@ CREATE TABLE `hospitalinfo` (
 
 INSERT INTO `hospitalinfo` (`id`, `name`, `address`, `director`, `owner`, `authorized_capacity`, `service_capacity`, `facility`, `contact`, `email`, `classification`, `private`, `clinical_lab`, `DTL`, `HIV`, `pharmacy`, `xray`, `BSF`, `dialysis`, `water_testing_lab`, `LTO_cert`, `license`, `date_monitoring`, `NOV`, `conformed_issued`, `date_deadline`) VALUES
 (1, 'hospital', '', 'director', 'owner', 'authorize', 'Hospital', 'facility', 'contact', 'email@gmail.com', 'Province', 1, 'Secondary', 1, 0, 1, 'level 2', '2', 'dialysis', 'water tesing lab', 'link', 'license', '2019-02-12', 1, 0, '2019-02-18'),
-(2, 'hospital0', 'address', 'director', 'owner', 'authorized', 'Infirmary', '123', '123123', 'hos@gmail.com', 'Province', 1, 'Secondary', 1, 1, 0, 'level 2', '2', 'Dialyiss', 'water testinng lab', 'link', 'qweqweqwe', '2019-02-11', 0, 1, '2019-02-21'),
-(3, 'hospital1', 'address1', 'director 1', 'owner1', '2', 'Infirmary', '123123', '346567', 'jose@gmail.com', 'City', 1, 'Primary', 0, 1, 1, 'level 2', '3', 'false', 'asdf', 'link.com', '2354765', '2019-02-15', 0, 1, '2019-02-19'),
+(2, 'hospital0', 'address', 'director', 'owner', 'authorized', 'Hospital : L1', '123', '123123', 'hos@gmail.com', 'Open this select menu', 1, 'Secondary', 1, 1, 0, 'level 2', '2', 'Dialyiss', 'water testinng lab', 'link', 'qweqweqwe', '2019-02-11', 0, 1, '2019-02-21'),
+(3, 'hospital1', 'address1', 'director 1', 'owner1', '2', 'Hospital : L2', '123123', '346567', 'jose@gmail.com', 'Open this select menu', 1, 'Primary', 0, 1, 1, 'level 2', '3', 'false', 'asdf', 'link.com', '2354765', '2019-02-15', 0, 1, '2019-02-19'),
 (4, 'hospital1', 'address1', 'director 1', 'owner1', '2', 'Infirmary', '123123', '346567', 'jose@gmail.com', 'City', 1, 'Primary', 0, 1, 1, 'level 2', '3', 'false', 'asdf', 'link.com', '2354765', '2019-02-15', 0, 1, '2019-02-19'),
 (5, 'hospital1', 'address1', 'director 1', 'owner1', '2', 'Infirmary', '123123', '346567', 'jose@gmail.com', 'City', 1, 'Primary', 0, 1, 1, 'level 2', '3', 'false', 'asdf', 'link.com', '2354765', '2019-02-15', 0, 1, '2019-02-19'),
 (6, 'hospital1', 'address1', 'director 1', 'owner1', '2', 'Infirmary', '123123', '346567', 'jose@gmail.com', 'City', 1, 'Primary', 0, 1, 1, 'level 2', '3', 'false', 'asdf', 'link.com', '2354765', '2019-02-15', 0, 1, '2019-02-19'),
@@ -74,7 +74,8 @@ INSERT INTO `hospitalinfo` (`id`, `name`, `address`, `director`, `owner`, `autho
 (10, 'hospital1', 'address1', 'director 1', 'owner1', '2', 'Infirmary', '123123', '346567', 'jose@gmail.com', 'City', 1, 'Primary', 0, 1, 1, 'level 2', '3', 'false', 'asdf', 'link.com', '2354765', '2019-02-15', 0, 1, '2019-02-19'),
 (11, 'hospital1', 'address1', 'director 1', 'owner1', '2', 'Infirmary', '123123', '346567', 'jose@gmail.com', 'City', 1, 'Primary', 0, 1, 1, 'level 2', '3', 'false', 'asdf', 'link.com', '2354765', '2019-02-15', 0, 1, '2019-02-19'),
 (12, 'hospital1', 'address1', 'director 1', 'owner1', '2', 'Infirmary', '123123', '346567', 'jose@gmail.com', 'City', 1, 'Primary', 0, 1, 1, 'level 2', '3', 'false', 'asdf', 'link.com', '2354765', '2019-02-15', 0, 1, '2019-02-19'),
-(13, 'hospital1', 'address1', 'director 1', 'owner1', '2', 'Infirmary', '123123', '346567', 'jose@gmail.com', 'City', 1, 'Primary', 0, 1, 1, 'level 2', '3', 'false', 'asdf', 'link.com', '2354765', '2019-02-15', 0, 1, '2019-02-19');
+(13, 'hospital1', 'address1', 'director 1', 'owner1', '2', 'Infirmary', '123123', '346567', 'jose@gmail.com', 'City', 1, 'Primary', 0, 1, 1, 'level 2', '3', 'false', 'asdf', 'link.com', '2354765', '2019-02-15', 0, 1, '2019-02-19'),
+(14, 'hos', 'ad', 'di', 'iw', 'a', '', '123', '32131', 'wew@gmail.com', 'City', 1, 'Primary', 0, 0, 1, 'level 3', '3', 'w', 'ww', 'asd', 'qweqweqwe', '2019-02-14', 0, 0, '2019-02-13');
 
 --
 -- Indexes for dumped tables
@@ -94,7 +95,7 @@ ALTER TABLE `hospitalinfo`
 -- AUTO_INCREMENT for table `hospitalinfo`
 --
 ALTER TABLE `hospitalinfo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
