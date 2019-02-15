@@ -2,18 +2,26 @@
 <?php include 'viewHospitals.php' ?>
     <!-- <h3 class="d-flex justify-content-center m-3 text-info">Hospitals</h3> -->
     <!--  style="position:sticky;top:62px;left:1000;z-index:100;"-->
-    <div class="col" >
-      <button type="button" name="button" id="updateBtn" class="btn btn-primary">Update</button>
-      <button type="button" name="button" id="deleteBtn" class="btn btn-primary">Delete</button>
-      <form class="" action="index_update.php" method="post" id="updateForm">
-        <input type="hidden" name="ids" id="ids" value="-1">
-      </form>
-      <form class="" action="deleteHospital.php" method="post" id="deleteForm">
-        <input type="hidden" name="ids" id="idsd" value="-1">
-      </form>
+    <div class="row container bg-dark" >
+      <div class="col mr-auto">
+
+        <form class="" action="index_update.php" method="post" id="updateForm">
+          <input type="hidden" name="ids" id="ids" value="-1">
+        </form>
+        <form class="" action="deleteHospital.php" method="post" id="deleteForm">
+          <input type="hidden" name="ids" id="idsd" value="-1">
+        </form>
+        <button type="button" name="button" id="updateBtn" class="btn btn-primary">Update</button>
+        <button type="button" name="button" id="deleteBtn" class="btn btn-primary">Delete</button>
+
+      </div>
+
+      <input type="text" name="" value="" class="" id="searchInput">
+      <a href="#" id="searchit"><button type="button" name="button" class="btn btn-info" id="searchbtn">Search</button></a>
+
     </div>
     <div class="col-12" style="overflow:scroll;height:80vh;">
-      <table class="table table-bordered table-striped hlist">
+      <table class="table table-bordered table-striped hlist"  >
         <thead class="thead-dark">
           <tr>
             <th>#                     </th>
@@ -49,7 +57,7 @@
             foreach ($sql as $row)
             {
               echo "<tr>";
-              echo "<td class='ids'>" . $row['id'                 ] . "</td> \n";
+              echo "<td class='ids' id = '" . $row['id'] . "'>" . $row['id'] . "</td> \n";
               echo "<td>" . $row['name'               ] . "</td> \n";
               echo "<td>" . $row['address'            ] . "</td> \n";
               echo "<td>" . $row['director'           ] . "</td> \n";
@@ -86,41 +94,49 @@
     </div>
 
 <script type="text/javascript">
-  $("tbody tr").click(function () {
-    $('.selected').removeClass('bg-primary');
-    $('.selected').removeClass('selected');
-    $(this).addClass("selected");
-    $(this).addClass("bg-primary");
-    var ids = $('.ids',this).html();//get row id
-    $("#ids").val(ids);//put id to update input
-    $("#idsd").val(ids);//put id to update input
-    //alert(ids);
-    // var product = $('.p',this).html();
-    // var infRate =$('.i',this).html();
-    // var note =$('.n',this).html();
-    // alert(product +','+ infRate+','+ note);
-    //$(this).css('background','blue');
-  });
 
-  $("#updateBtn").click(function(){
-    if ($("#ids").val() != "-1") {
-      $("#updateForm").submit();
-    }else{
-      alert('Please select row to update');
-    }
-  });
+  $(document).ready(function(){
+    $("tbody tr").click(function () {
+      $('.selected').removeClass('bg-primary');
+      $('.selected').removeClass('selected');
+      $(this).addClass("selected");
+      $(this).addClass("bg-primary");
+      var ids = $('.ids',this).html();//get row id
+      $("#ids").val(ids);//put id to update input
+      $("#idsd").val(ids);//put id to update input
+      //alert(ids);
+      // var product = $('.p',this).html();
+      // var infRate =$('.i',this).html();
+      // var note =$('.n',this).html();
+      // alert(product +','+ infRate+','+ note);
+      //$(this).css('background','blue');
+    });
 
-  $("#deleteBtn").click(function(){
-    if ($("#idsd").val() != "-1") {
-      if (confirm('Are you sure you want to delete this row?')) {
-          // Save it!
-          $("#deleteForm").submit();
-      } else {
-          // Do nothing!
+    $("#updateBtn").click(function(){
+      if ($("#ids").val() != "-1") {
+        $("#updateForm").submit();
+      }else{
+        alert('Please select row to update');
       }
-    }else{
-      alert('Please select row to delete');
-    }
+    });
+
+    $("#deleteBtn").click(function(){
+      if ($("#idsd").val() != "-1") {
+        if (confirm('Are you sure you want to delete this row?')) {
+            // Save it!
+            $("#deleteForm").submit();
+        } else {
+            // Do nothing!
+        }
+      }else{
+        alert('Please select row to delete');
+      }
+    });
+
+    $("#searchInput").keyup(function(){
+      $("#searchit").attr("href","#"+$("#searchInput").val());
+    });
   });
+
 </script>
 <?php include 'bottomlayout.php' ?>

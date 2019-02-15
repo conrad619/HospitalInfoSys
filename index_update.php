@@ -6,7 +6,7 @@
                   <div class="form-group row">
                     <label for="name" class="col-sm-2 col-form-label">Name of Hospital:</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control " name="id" id="id" value="<?php echo $row["id"]; ?>" required>
+                      <input type="hidden" class="form-control " name="id" id="id" value="<?php echo $row["id"]; ?>" required>
                       <input type="text" class="form-control " name="name" id="name" value="<?php echo $row["name"]; ?>" required>
                     </div>
                   </div>

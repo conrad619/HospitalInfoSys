@@ -41,8 +41,8 @@ table.hlist tbody tr{
 
 
 table.hlist th{
-  position: sticky;
-  top:0;
+  /*position: sticky;
+  top:0;*/
 }
 table.formatHTML5 tr.selected {
     background-color: #e92929 !important;
