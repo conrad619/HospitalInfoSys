@@ -2,7 +2,7 @@
 <?php include 'viewHospitals.php' ?>
     <!-- <h3 class="d-flex justify-content-center m-3 text-info">Hospitals</h3> -->
     <!--  style="position:sticky;top:62px;left:1000;z-index:100;"-->
-    <div class="row container bg-dark" >
+    <div class="row container bg-secondary" >
       <div class="col mr-auto">
 
         <form class="" action="index_update.php" method="post" id="updateForm">
@@ -82,7 +82,7 @@
               echo "<td>" . $row['date_monitoring'    ] . "</td> \n";
               echo "<td>" . $row['NOV'                ] . "</td> \n";
               echo "<td>" . $row['conformed_issued'   ] . "</td> \n";
-              echo "<td>" . $row['date_deadline'      ] . "</td> \n";
+              echo "<td class='datee'>" . $row['date_deadline'      ] . "</td> \n";
               echo "</tr>";
             }
           ?>
@@ -96,7 +96,44 @@
 <script type="text/javascript">
 
   $(document).ready(function(){
+    var dalerted = false;
+    var palerted = false;
+    var dd = (()=>{
+      var dalert = false;
+      var palert = false;
+      $("tbody tr").each(function(){
+        var d  = $('.datee',this).html();
+        var th = $(this);
+        $('td',this).each(function(){
+          if($(this).html()==''){
+
+            if(new Date(d) <= new Date){
+                $(th).addClass("bg-warning");
+                dalert = true;
+            }else if(new Date(d) >= new Date){
+                $(th).addClass("bg-danger");
+                palert = true;
+            }
+          }
+        })
+      })
+
+      if(dalert && !dalerted){
+        alert("warning some applicants lack information..");
+        alerted=true;
+      }
+      if(palert && !palerted){
+        alert("some applicants past the deadline..");
+        alerted=true;
+      }
+
+    })
+    dd();
+
     $("tbody tr").click(function () {
+      dd();
+      $(this).removeClass('bg-warning');
+      $(this).removeClass('bg-danger');
       $('.selected').removeClass('bg-primary');
       $('.selected').removeClass('selected');
       $(this).addClass("selected");
@@ -104,6 +141,13 @@
       var ids = $('.ids',this).html();//get row id
       $("#ids").val(ids);//put id to update input
       $("#idsd").val(ids);//put id to update input
+
+
+      //var datee = $('.datee',this).html();//get row id
+      // alert(new Date(datee));
+      // alert(new Date());
+      // alert(new Date(datee) >= new Date());
+
       //alert(ids);
       // var product = $('.p',this).html();
       // var infRate =$('.i',this).html();
@@ -136,6 +180,8 @@
     $("#searchInput").keyup(function(){
       $("#searchit").attr("href","#"+$("#searchInput").val());
     });
+
+
   });
 
 </script>

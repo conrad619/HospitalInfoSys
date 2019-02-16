@@ -28,7 +28,7 @@
                   <div class="form-group row">
                     <label for="owner" class="col-sm-2 col-form-label">Owner:</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" name="owner" id="owner" value="<?php echo $row["owner"]; ?>" required>
+                      <input type="text" class="form-control" name="owner" id="owner" value="<?php echo $row["owner"]; ?>" >
                     </div>
                   </div>
 
@@ -62,7 +62,7 @@
                       <div class=" col-sm-12" id="hospitalSelection">
                         <div class="row">
                           <label for="shospital" class="col-form-label mr-3">Hospital:</label>
-                          <select class="custom-select col" name="shospital" id="shospital" required>
+                          <select class="custom-select col" name="shospital" id="shospital">
 
                             <option value="<?php echo $lvl; ?>" selected><?php echo $lvl; ?></option>
                             <option value="L1">L1</option>
@@ -104,8 +104,8 @@
                     <label for="classification" class="col-sm-2 col-form-label ">Classification by Ownership:</label>
                       <div class="col-sm-10">
                         <label for="" class="col-form-label ">Government:</label>
-                        <select class="custom-select" name="classification" id="classification" value="<?php echo $row["classification"]; ?>" required>
-                          <option selected>Open this select menu</option>
+                        <select class="custom-select" name="classification" id="classification"  required>
+                          <option selected value="<?php echo $row["classification"]; ?>"><?php echo $row["classification"]; ?></option>
                           <option value="Province">Province</option>
                           <option value="Municipality">Municipality</option>
                           <option value="City">City</option>

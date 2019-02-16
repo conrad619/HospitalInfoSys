@@ -50,3 +50,11 @@ table.formatHTML5 tr.selected {
     vertical-align: middle;
     padding: 1.5em;
 }
+
+table.formatHTML5 tr.warningDeadline{
+    background-color: #ffa642 !important;
+    color:#fff;
+    vertical-align: middle;
+    padding: 1.5em;
+
+}

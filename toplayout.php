@@ -11,10 +11,10 @@
   </script>
 </head>
 <body style="height:100vh;">
-  <div class="container-fluid bg-dark" style="position:sticky;top:0;z-index:1000;left:0;">
+  <div class="container-fluid bg-dark" >
 
     <div class="d-flex justify-content-center text-light p-2">
-      <h2>Hospital / Infirmary / Birthing Hospital</h2>
+      <h4>Hospital / Infirmary / Birthing Hospital</h4>
     </div>
   </div>
 
