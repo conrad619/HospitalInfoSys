@@ -16,9 +16,22 @@
 
       </div>
 
-      <input type="text" name="" value="" class="" id="searchInput">
-      <a href="#" id="searchit"><button type="button" name="button" class="btn btn-info" id="searchbtn">Search</button></a>
-
+      <!-- <input type="text" name="" value="" class="" id="searchInput"> -->
+      <!-- <a href="#" id="searchit"><button type="button" name="button" class="btn btn-info" id="searchbtn">Search</button></a> -->
+      <select class="" name="" id='searchselect'>
+        <option value="0">January</option>
+        <option value="1">February</option>
+        <option value="2">March</option>
+        <option value="3">April</option>
+        <option value="4">May</option>
+        <option value="5">June</option>
+        <option value="6">July</option>
+        <option value="7">August</option>
+        <option value="8">September</option>
+        <option value="9">October</option>
+        <option value="10">November</option>
+        <option value="11">December</option>
+      </select>
     </div>
     <div class="col-12" style="overflow:scroll;height:80vh;">
       <table class="table table-bordered table-striped hlist"  >
@@ -53,11 +66,29 @@
           </tr>
         </thead>
         <tbody>
+
+            <form class='' action='complyHospital.php' method='post' id='formComply'>
+              <input type='hidden' name='complyid' value='' id='idcid'>
+              <input type='hidden' name='comply' value='' id='comply'>
+            </form>
           <?php
             foreach ($sql as $row)
             {
-              echo "<tr>";
+              $warn='';
+              if($row['complied'] == '0'){
+                $warn='bg-danger';
+              }
+              echo "<tr class='" . $warn . " '>";
               echo "<td class='ids' id = '" . $row['id'] . "'>" . $row['id'] . "</td> \n";
+              if ($row['complied'] == '0' ){
+                echo "<td>
+                  <button type='button' name='button' class='btn btn-success idc' value='" . $row['id'] . "'>comply</button>
+                  </td> \n";
+              }else{
+                echo "<td>
+                  <button type='button' name='button' class='btn btn-info idcd' value='" . $row['id'] . "'>uncomply</button>
+                  </td> \n";
+              }
               echo "<td>" . $row['name'               ] . "</td> \n";
               echo "<td>" . $row['address'            ] . "</td> \n";
               echo "<td>" . $row['director'           ] . "</td> \n";
@@ -98,37 +129,37 @@
   $(document).ready(function(){
     var dalerted = false;
     var palerted = false;
-    var dd = (()=>{
-      var dalert = false;
-      var palert = false;
-      $("tbody tr").each(function(){
-        var d  = $('.datee',this).html();
-        var th = $(this);
-        $('td',this).each(function(){
-          if($(this).html()==''){
-
-            if(new Date(d) <= new Date){
-                $(th).addClass("bg-warning");
-                dalert = true;
-            }else if(new Date(d) >= new Date){
-                $(th).addClass("bg-danger");
-                palert = true;
-            }
-          }
-        })
-      })
-
-      if(dalert && !dalerted){
-        alert("warning some applicants lack information..");
-        alerted=true;
-      }
-      if(palert && !palerted){
-        alert("some applicants past the deadline..");
-        alerted=true;
-      }
-
-    })
-    dd();
+    // var dd = (()=>{
+    //   dalert = false;
+    //   palert = false;
+    //   $("tbody tr").each(function(){
+    //     var d  = $('.datee',this).html();
+    //     var th = $(this);
+    //     $('td',this).each(function(){
+    //       if($(this).html()==''){
+    //
+    //         if(new Date(d) <= new Date){
+    //             $(th).addClass("bg-warning");
+    //             dalert = true;
+    //         }else if(new Date(d) >= new Date){
+    //             $(th).addClass("bg-danger");
+    //             palert = true;
+    //         }
+    //       }
+    //     })
+    //   })
+    //
+    //   if(dalert && !dalerted){
+    //   //  alert("warning some applicants lack information..");
+    //     alerted=true;
+    //   }
+    //   if(palert && !palerted){
+    //     //alert("some applicants past the deadline..");
+    //     alerted=true;
+    //   }
+    //
+    // })
+    // dd();
 
     $("tbody tr").click(function () {
       dd();
@@ -177,8 +208,41 @@
       }
     });
 
-    $("#searchInput").keyup(function(){
-      $("#searchit").attr("href","#"+$("#searchInput").val());
+    // $("#searchInput").keyup(function(){
+    //   $("#searchit").attr("href","#"+$("#searchInput").val());
+    // });
+
+    $("#searchselect").change(function(){
+      //$("#searchit").attr("href","#"+$("#searchInput").val());
+
+      var m = $(this).children("option:selected").val();
+      $("tbody tr").each(function(){
+        var d  = $('.datee',this).html();
+        var md = new Date(d).getMonth();
+
+        if(md != m){
+          $(this).addClass('d-none');
+        }else{
+          $(this).removeClass('d-none');
+
+        }
+      })
+    });
+
+    $(".idc").click(function(){
+      //alert($(this).val());
+      $("#idcid").val($(this).val());
+      $("#comply").val('1');
+      $("#formComply").submit();
+
+    });
+
+    $(".idcd").click(function(){
+      //alert($(this).val());
+      $("#idcid").val($(this).val());
+      $("#comply").val('0');
+      $("#formComply").submit();
+
     });
 
 
